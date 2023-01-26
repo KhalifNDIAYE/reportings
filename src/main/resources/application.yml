@@ -1,0 +1,44 @@
+## Propriétés du serveur
+server:
+  port: 8080
+
+## Propriétés de la base de données reportings
+        
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: P@sser123
+    url: jdbc:postgresql://localhost:5432/reportings
+    username: postgres
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 2000000
+      pool-name: HikariPoolREPORTINGS
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  
+## Propriétés de journalisation
+logging:
+  level:
+    root: INFO
+    com:
+      vision:
+        nakala: DEBUG
+        
+## JWT
+jwt:
+  secret: javainuse
+  
+## Pour utiliser un chemin personnalisé, nous pouvons indiquer dans le fichier application.properties :
+springdoc:
+  api-docs:
+    path: /reportings/api-docs
+  swagger-ui:
+    path: /swagger-ui-reportings.html
+    operationsSorter: method
